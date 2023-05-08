@@ -3,10 +3,10 @@
 :root {
   --font-primary: 'League Spartan', sans-serif;
   --color-secondary: #12f56d;
+  --width-main: 80%;
 }
 
 .App {
-  /* text-align: center; */
   font-family: var(--font-primary)
 }
 

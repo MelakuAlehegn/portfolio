@@ -1,0 +1,21 @@
+.Resume {
+    width: 8rem;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #1f3288;
+    background: #0f1631;
+    border-radius: 4px;
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: medium;
+}
+
+.Resume:hover {
+    background: #162047;
+    border: 1px solid #314dca;
+    transition: 0.3s;
+    color: var(--color-secondary);
+}

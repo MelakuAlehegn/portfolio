@@ -1,0 +1,48 @@
+.hero {
+    width: 80%;
+    margin: 8rem auto;
+    display: flex;
+}
+
+.hero-name {
+    font-size: larger;
+    width: 60%;
+    margin-right: 3rem;
+    margin-bottom: 30px;
+}
+
+.text {
+    margin-bottom: 3rem;
+
+}
+
+.greeting {
+    color: rgba(255, 255, 255, 0.5);
+
+}
+
+.name {
+    color: var(--color-secondary);
+    font-size: 5rem;
+}
+
+.role {
+    color: var(--color-secondary);
+    font-size: 3rem;
+}
+
+.hero-discription {
+    line-height: 1.1;
+    font-size: larger;
+}
+
+.hero-image {
+    border-radius: 1.7rem;
+    width: 30%;
+}
+
+@media (max-width: 1500px) {
+    .hero-image {
+        width: 34%;
+    }
+}
