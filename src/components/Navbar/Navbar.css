@@ -1,0 +1,50 @@
+.Navbar {
+    display: flex;
+    justify-content: space-between;
+    margin: 1.5rem 3rem;
+}
+
+.Navbar ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.Navbar li {
+    margin-left: 1.4rem;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+.Navbar li:hover {
+    color: var(--color-secondary);
+    transition: 0.1s;
+}
+
+.Resume {
+    min-width: 100px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #1f3288;
+    background: #0f1631;
+    border-radius: 4px;
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: medium;
+}
+
+.Resume:hover {
+    background: #162047;
+    border: 1px solid #314dca;
+    transition: 0.3s;
+    color: var(--color-secondary);
+}
+
+.logo {
+    border-radius: 50%;
+    height: 80px;
+    cursor: pointer;
+}

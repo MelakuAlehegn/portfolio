@@ -1,5 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@300&family=Nunito+Sans:wght@300&family=Oswald:wght@200;400&display=swap');
+
+:root {
+  --font-primary: 'League Spartan', sans-serif;
+  --color-secondary: #12f56d;
+}
+
 .App {
-  text-align: center;
+  /* text-align: center; */
+  font-family: var(--font-primary)
 }
 
 .App-header {
