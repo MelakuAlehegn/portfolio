@@ -9,16 +9,17 @@
     width: 60%;
     margin-right: 3rem;
     margin-bottom: 30px;
+    color: var(--color-primary);
+    font-family: var(--font-secondary);
+    font-size: 1.1rem;
 }
 
 .text {
     margin-bottom: 3rem;
-
 }
 
 .greeting {
-    color: rgba(255, 255, 255, 0.5);
-
+    color: var(--color-primary);
 }
 
 .name {

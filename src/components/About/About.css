@@ -1,0 +1,39 @@
+.about {
+    padding-top: 22rem;
+    margin-top: 6rem;
+    width: 80%;
+    margin: auto;
+    display: flex;
+}
+
+h1 span {
+    color: var(--color-secondary);
+}
+
+.about-text {
+    width: 60%;
+    margin-right: 3rem;
+    font-size: 1.5rem;
+}
+
+.about-text p {
+    color: var(--color-primary);
+    font-family: var(--font-secondary);
+    font-size: 1.3rem;
+}
+
+.about-img {
+    width: 40%;
+    border-radius: 1.7rem;
+}
+
+.social {
+    width: 30%;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}
+
+.social li {
+    cursor: pointer;
+}
