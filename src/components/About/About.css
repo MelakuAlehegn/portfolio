@@ -1,18 +1,13 @@
-.about {
-    padding-top: 22rem;
-    margin-top: 6rem;
-    width: 80%;
-    margin: auto;
-    display: flex;
-}
-
 h1 span {
     color: var(--color-secondary);
 }
 
 .about-text {
-    width: 60%;
-    margin-right: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: var(--width-main);
+    margin: auto;
     font-size: 1.5rem;
 }
 
@@ -28,7 +23,7 @@ h1 span {
 }
 
 .social {
-    width: 30%;
+    width: 20%;
     display: flex;
     list-style: none;
     justify-content: space-between;

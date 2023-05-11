@@ -7,7 +7,11 @@
   --color-primary: #a9bcd6;
   --color-secondary: #12f56d;
   --width-main: 80%;
+}
 
+h1 {
+  text-transform: uppercase;
+  font-family: var(--font-secondary)
 }
 
 .App {
