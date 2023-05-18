@@ -65,14 +65,15 @@ function Skills() {
     return (
         <div className='skills'>
             <h1 className='skills-header'>Skills</h1>
-            <p className='skills-discription'>I enjoy creating things that live on the internet, whether that be websites, applications, or anything in between.</p>
+            <p className='skills-discription'>I'm currently looking to join a cross-functional team
+                that values improving people's lives through accessible design. </p>
             <div className='tech-stack'>
 
                 {
                     techs.map((tech) => (
                         <div key={tech} className='tech-logo'>
                             <img alt='logo' src={tech.logo}></img>
-                            <p>{tech.name}</p>
+                            {/* <p>{tech.name}</p> */}
                         </div>
                     ))
                 }

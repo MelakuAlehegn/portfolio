@@ -1,5 +1,5 @@
 .hero {
-    width: 80%;
+    width: 90%;
     margin: 8rem auto;
     display: flex;
     transform-style: preserve-3d;
@@ -39,14 +39,34 @@
     font-size: larger;
 }
 
-.hero-image {
-    border-radius: 0.4rem;
-    width: 30%;
-    transform: rotateY(-30deg);
+.image {
+    width: 30rem;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    background-image: url(../images/Gradient.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
-@media (max-width: 1500px) {
+.hero-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 14rem;
+    max-height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    /* border-radius: 50%; */
+    z-index: 0;
+}
+
+
+/* @media (max-width: 1500px) {
     .hero-image {
         width: 34%;
     }
-}
+} */

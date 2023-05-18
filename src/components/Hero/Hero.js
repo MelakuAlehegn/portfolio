@@ -1,7 +1,7 @@
 import React from 'react';
 import "./Hero.css";
 import Button from '../Button/Button';
-import img from '../images/removed.png'
+import img from '../images/Cover.png';
 
 function Hero() {
     return (
@@ -17,7 +17,9 @@ function Hero() {
                 </div>
                 <Button name="Get in touch" height='3.8rem' width='10rem' />
             </div>
-            <img className='hero-image' src={img}></img>
+            <div className='image'>
+                <img className='hero-image' src={img}></img>
+            </div>
         </div>
     )
 }

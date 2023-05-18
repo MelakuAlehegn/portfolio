@@ -1,0 +1,49 @@
+.progress-bar {
+    position: relative;
+    width: 20px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.dot {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #333;
+    z-index: 1;
+}
+
+.line {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 180px;
+    background-color: #333;
+}
+
+.line:nth-child(2) {
+    top: 60px;
+    height: 80px;
+}
+
+.line:nth-child(4) {
+    top: 110px;
+}
+
+.dot:nth-child(3) {
+    top: 50px;
+}
+
+.dot:nth-child(5) {
+    top: 100px;
+}
+
+.dot:last-child {
+    top: 190px;
+}
