@@ -3,6 +3,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { Section } from "./ui/section";
+import { Card } from "./ui/card";
+import { Pill } from "./ui/pill";
+import { projects, projectCategories } from "@/lib/data";
 
 function GithubIcon({ className }: { className?: string }) {
   return (
@@ -20,10 +24,19 @@ function GithubIcon({ className }: { className?: string }) {
     </svg>
   );
 }
-import { Section } from "./ui/section";
-import { Card } from "./ui/card";
-import { Pill } from "./ui/pill";
-import { projects, projectCategories } from "@/lib/data";
+
+const projectMonograms: Record<string, string> = {
+  "Project Chimera": "PC",
+  "Semantic Image-Text Alignment": "SI",
+  "Data Warehouse": "DW",
+  "Demand Planner MVP": "DP",
+  "Telecom User Analysis": "TA",
+  "Contract RAG": "CR",
+};
+
+function getProjectMonogram(name: string): string {
+  return projectMonograms[name] ?? name.slice(0, 2).toUpperCase();
+}
 
 export function Projects() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -33,26 +46,45 @@ export function Projects() {
       ? projects
       : projects.filter((p) => p.category === activeCategory);
 
+  const activeTabId = `project-tab-${activeCategory.replace(/\s+/g, "-").replace(/\//g, "-").toLowerCase()}`;
+
   return (
     <Section id="work" eyebrow="WORK" title="Selected work">
-      {/* Filter pills */}
-      <div className="flex flex-wrap gap-2 mb-8">
-        {projectCategories.map((category) => (
-          <button
-            key={category}
-            onClick={() => setActiveCategory(category)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-              activeCategory === category
-                ? "bg-accent text-white"
-                : "border border-border bg-surface text-text-muted hover:border-border-strong hover:text-text"
-            }`}
-          >
-            {category}
-          </button>
-        ))}
+      <div
+        role="tablist"
+        aria-label="Filter projects by category"
+        className="flex flex-wrap gap-2 mb-8"
+      >
+        {projectCategories.map((category) => {
+          const tabId = `project-tab-${category.replace(/\s+/g, "-").replace(/\//g, "-").toLowerCase()}`;
+          return (
+            <button
+              key={category}
+              type="button"
+              id={tabId}
+              role="tab"
+              aria-selected={activeCategory === category}
+              aria-pressed={activeCategory === category}
+              aria-controls="project-grid"
+              onClick={() => setActiveCategory(category)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                activeCategory === category
+                  ? "bg-accent text-white"
+                  : "border border-border bg-surface text-text-muted hover:border-border-strong hover:text-text"
+              }`}
+            >
+              {category}
+            </button>
+          );
+        })}
       </div>
 
-      <div className="grid md:grid-cols-2 gap-6">
+      <div
+        id="project-grid"
+        role="tabpanel"
+        aria-labelledby={activeTabId}
+        className="grid md:grid-cols-2 gap-6"
+      >
         <AnimatePresence mode="popLayout">
           {filteredProjects.map((project, index) => (
             <motion.div
@@ -63,17 +95,16 @@ export function Projects() {
               transition={{ duration: 0.3, ease: "easeOut", delay: index * 0.05 }}
             >
               <Card className="h-full flex flex-col group">
-                {/* Thumbnail area with category badge */}
-                <div className="mb-6 rounded-xl bg-gradient-to-br from-accent/20 to-violet-500/10 border border-border p-6 flex items-center justify-between min-h-[120px]">
-                  <span className="font-mono text-lg font-semibold text-text">
-                    {project.name}
+                <div className="mb-6 rounded-xl bg-gradient-to-br from-accent/20 to-violet-500/10 border border-border px-6 py-5 flex items-start justify-between min-h-24">
+                  <span
+                    aria-hidden="true"
+                    className="font-mono text-3xl font-semibold text-text/90 tracking-tight"
+                  >
+                    {getProjectMonogram(project.name)}
                   </span>
-                  <span className="text-xs text-text-subtle group-hover:text-accent transition-colors">
-                    {project.category}
-                  </span>
+                  <Pill variant="muted">{project.category}</Pill>
                 </div>
 
-                {/* Content */}
                 <div className="flex-1 flex flex-col">
                   <p className="text-sm text-accent font-medium mb-2">
                     {project.tagline}
@@ -85,7 +116,6 @@ export function Projects() {
                     {project.description}
                   </p>
 
-                  {/* Tags */}
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.tags.slice(0, 5).map((tag) => (
                       <Pill key={tag} variant="accent">
@@ -97,7 +127,6 @@ export function Projects() {
                     )}
                   </div>
 
-                  {/* Link */}
                   <a
                     href={project.link}
                     target="_blank"
@@ -115,7 +144,6 @@ export function Projects() {
         </AnimatePresence>
       </div>
 
-      {/* More on GitHub link */}
       <div className="mt-12 text-center">
         <a
           href="https://github.com/MelakuAlehegn"

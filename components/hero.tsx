@@ -4,13 +4,13 @@ import { motion } from "framer-motion";
 import { Eyebrow } from "./ui/eyebrow";
 import { Button } from "./ui/button";
 import { HeroTerminal } from "./hero-terminal";
-import { heroStats } from "@/lib/data";
+import { HeroNowTicker } from "./hero-now-ticker";
 
 export function Hero() {
   return (
     <section className="relative min-h-screen px-6 md:px-12 pt-32 pb-24 overflow-hidden">
       {/* Background grid */}
-      <div className="absolute inset-0 bg-grid opacity-50" />
+      <div className="absolute inset-0 bg-grid opacity-50" aria-hidden="true" />
 
       <div className="relative z-10 max-w-6xl mx-auto">
         {/* Two-column layout */}
@@ -53,10 +53,10 @@ export function Hero() {
               transition={{ duration: 0.3, delay: 0.2 }}
               className="text-lg text-text-muted max-w-xl mb-8 leading-relaxed"
             >
-              I&apos;m Melaku — I build at the intersection of data engineering, machine
-              learning, and agentic AI. From fraud-detection pipelines at Arifpay to
-              custom MCP clients in Java, I focus on the unsexy infrastructure that
-              makes AI systems actually work in production.
+              I&apos;m Melaku. I build production AI and ML systems end to end —
+              ingestion pipelines, model lifecycles, agent loops, and the
+              infrastructure underneath that has to keep them running once real
+              users show up.
             </motion.p>
 
             {/* CTAs */}
@@ -73,6 +73,8 @@ export function Hero() {
                 Let&apos;s talk
               </Button>
             </motion.div>
+
+            <HeroNowTicker />
           </motion.div>
 
           {/* Right column - ~45% */}
@@ -85,30 +87,6 @@ export function Hero() {
             <HeroTerminal />
           </motion.div>
         </div>
-
-        {/* Stats row */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.4 }}
-          className="mt-20 pt-12 border-t border-border"
-        >
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-            {heroStats.map((stat, index) => (
-              <div
-                key={index}
-                className={`text-center ${index < heroStats.length - 1 ? "sm:border-r sm:border-border" : ""}`}
-              >
-                <div className="font-mono text-3xl md:text-4xl font-semibold text-text mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-text-muted max-w-[180px] mx-auto">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

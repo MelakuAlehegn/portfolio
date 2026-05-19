@@ -107,10 +107,24 @@ export const projectCategories = [
 
 export const experience: Experience[] = [
   {
+    id: "wickedanalytics",
+    company: "WickedAnalytics",
+    role: "Machine Learning / Data Engineer",
+    dates: "Jan 2026 — Present",
+    location: "Remote",
+    achievements: [
+      "Built and maintained daily Airflow ingestion pipelines across an 11-client retail analytics platform, loading Walmart supplier feeds (demand forecast, satdata, supply plan, store forecast, cut & sold, production orders) into Snowflake via xlsx repair, pandas-driven CSV conversion, Azure Blob staging, and templated COPY INTO.",
+      "Authored and refactored dbt models across raw, stage, cur, and con layers for all 11 client deployments — including incremental merge strategy with natural-key deduplication and item-level rollups using WM_ITEM_NBR to fix grain mismatches for 1:many apparel vendors.",
+      "Led a platform-wide UPC-key audit and enriched base demand-forecast tables with WALMART_UPC_NUMBER via satdata lookups, aligning joins across every client to the canonical product key.",
+      "Built the Snowflake-resident ML forecast pipeline producing per-client weekly demand forecasts, with outputs materialized to client-facing Excel workbooks delivered into shared Box folders for downstream demand planners.",
+      "Diagnosed and resolved production incidents spanning missing warehouse privileges, scheduler self-loops causing duplicate ingestion, whitespace-only cells breaking Snowflake TIMESTAMP parsing, and identifier typos surfacing only at dbt compile time.",
+    ],
+  },
+  {
     id: "arifpay",
     company: "Arifpay",
     role: "Data Scientist",
-    dates: "Jan 2025 — Present",
+    dates: "Jan 2025 — May 2026",
     location: "Addis Ababa, Ethiopia",
     achievements: [
       "Built and deployed ML models for payment fraud detection on high-volume transactional data with severe class imbalance.",
@@ -161,7 +175,7 @@ export const experience: Experience[] = [
 
 export const featuredPost: WritingLink = {
   title: "From Spec to System: Building a Real AI Agent Architecture",
-  url: "https://medium.com/@melakualehegn34",
+  url: "https://medium.com/@melakualehegn34/from-spec-to-system-building-a-real-ai-agent-architecture-c3d6ca4f630f",
   excerpt:
     "A deep dive into the production architecture of agentic AI -- memory, role separation, the revision loop, LLM-as-Judge, and writing a Model Context Protocol client from scratch.",
   featured: true,
@@ -182,12 +196,29 @@ export const contact = {
   email: "melakualehegn34@gmail.com",
   linkedin: "https://linkedin.com/in/melakualehegn",
   github: "https://github.com/MelakuAlehegn",
+  portfolioRepo: "https://github.com/MelakuAlehegn/portfolio",
   medium: "https://medium.com/@melakualehegn34",
   hashnode: "https://hashnode.com/@Melaku",
   location: "Addis Ababa, Ethiopia",
 };
 
+export const resume = {
+  href: "/resume.pdf",
+  downloadName: "Melaku-Alehegn-Resume.pdf",
+};
+
+export const heroNowTopics = [
+  "agent memory · tool routing · loops that know when to stop",
+  "RAG · embeddings · answers tied to real sources",
+  "feature pipelines · model registries · retraining in production",
+  "Airflow · dbt · warehouses that stay honest at scale",
+  "fraud signals · drift checks · ML when the data fights back",
+  "MCP · LLM judges · systems you can reason about",
+  "FastAPI · batch + online inference · APIs models can live behind",
+];
+
 export const navLinks = [
+  { label: "About", href: "#about" },
   { label: "Work", href: "#work" },
   { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
@@ -195,19 +226,36 @@ export const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
-export const heroStats = [
-  { value: "15%", label: "Fraud reduction at Arifpay" },
-  { value: "$300M+", label: "Potential losses prevented (Airflow ML pipelines)" },
-  { value: "1,929", label: "LinkedIn followers" },
-];
-
-// Skills data
 export const skills = {
-  languages: ["Python", "SQL", "Java", "TypeScript", "Bash"],
-  dataML: ["MLflow", "Airflow", "Celery", "dbt", "Pandas", "scikit-learn", "TensorFlow"],
-  backend: ["FastAPI", "Flask", "PostgreSQL", "MongoDB", "Redis", "Docker"],
-  llmsAI: ["Gemini", "Claude", "LangChain", "ChromaDB", "MCP", "RAG"],
-  cloudBI: ["AWS", "Azure", "GCP", "Metabase", "Power BI"],
+  Languages: ["Python", "SQL", "Java", "TypeScript", "Bash"],
+  "Data & ML": [
+    "Airflow",
+    "dbt",
+    "Snowflake",
+    "MLflow",
+    "Celery",
+    "Pandas",
+    "scikit-learn",
+    "TensorFlow",
+    "Cosmos",
+  ],
+  "Backend & Databases": [
+    "FastAPI",
+    "Flask",
+    "PostgreSQL",
+    "MongoDB",
+    "Docker",
+  ],
+  "LLMs & AI": ["Gemini", "Claude", "LangChain", "ChromaDB", "MCP", "RAG"],
+  "Cloud & BI": [
+    "AWS",
+    "Azure",
+    "Azure Blob Storage",
+    "GCP",
+    "Metabase",
+    "PowerBI",
+    "Redash",
+  ],
 };
 
 // Certifications data

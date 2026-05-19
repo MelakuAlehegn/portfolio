@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Melaku Alehegn — AI · ML · Data Engineer",
   description:
-    "AI / ML / Data engineer building production systems at the intersection of data, machine learning, and agentic AI. Currently at Arifpay.",
+    "AI / ML / Data engineer building production systems at the intersection of data, machine learning, and agentic AI.",
   metadataBase: new URL("https://melakualehegn.com"),
   openGraph: {
     title: "Melaku Alehegn — AI · ML · Data Engineer",

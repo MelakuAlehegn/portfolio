@@ -8,9 +8,9 @@ export function About() {
       <div className="max-w-3xl">
         <div className="space-y-6 text-lg text-text-muted leading-relaxed">
           <p>
-            Currently a Data Scientist at Arifpay in Addis Ababa, where I work on payment
-            fraud detection, merchant credit scoring, and continuous-learning pipelines
-            with MLflow, Celery, and Airflow.
+            Most recently a Data Scientist at Arifpay in Addis Ababa (through May 2026),
+            working on payment fraud detection, merchant credit scoring, and
+            continuous-learning pipelines with MLflow, Celery, and Airflow.
           </p>
           <p>
             Outside of work, I go deep into the architectural side of agentic AI — how

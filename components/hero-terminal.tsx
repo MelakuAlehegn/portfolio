@@ -47,7 +47,7 @@ const commands: Record<string, () => Line[]> = {
   whoami: () => [
     { kind: "output", text: "Melaku Alehegn" },
     { kind: "output", text: "AI / ML / Data Engineer · Addis Ababa, Ethiopia" },
-    { kind: "output", text: "Currently building at Arifpay." },
+    { kind: "output", text: "Currently at WickedAnalytics." },
     { kind: "output", text: "github.com/MelakuAlehegn" },
   ],
   skills: () => [
@@ -68,10 +68,11 @@ const commands: Record<string, () => Line[]> = {
     { kind: "output", text: "scroll down for details, or visit github.com/MelakuAlehegn" },
   ],
   experience: () => [
-    { kind: "output", text: "2025 — now      Arifpay · Data Scientist" },
+    { kind: "output", text: "2026 — now      WickedAnalytics · ML / Data Engineer" },
+    { kind: "output", text: "2025 — 2026     Arifpay · Data Scientist" },
     { kind: "output", text: "2023 — 2024     Nedamco Africa · Cloud Consultant" },
     { kind: "output", text: "2023 — 2024     OpenStack · Outreachy Intern" },
-    { kind: "output", text: "2023 — 2023     MMCY Tech · Full Stack Intern" },
+    { kind: "output", text: "2023 — 2024     MMCY Tech · Full Stack Intern" },
   ],
   writing: () => [
     { kind: "output", text: "From Spec to System: Building a Real AI Agent Architecture" },
@@ -358,7 +359,7 @@ export function HeroTerminal() {
 
         <div
           ref={scrollRef}
-          className="p-4 min-h-[280px] max-h-[320px] overflow-y-auto"
+          className="px-4 py-14 min-h-[360px] max-h-[400px] overflow-y-auto"
         >
           <AnimatePresence mode="wait">
             <motion.div
