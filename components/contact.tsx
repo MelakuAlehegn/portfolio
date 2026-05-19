@@ -81,9 +81,9 @@ export function Contact() {
         className="max-w-2xl mx-auto text-center"
       >
         <p className="text-lg text-text-muted leading-relaxed mb-8">
-          I&apos;m open to senior software engineering and AI/ML roles, freelance work
-          with a strong technical mandate, and conversations with people building
-          thoughtful systems.
+          I&apos;m open to senior software, AI/ML, and data engineering roles, freelance
+          work with strong technical mandates, and conversations with people building
+          thoughtful systems at the data + AI intersection.
         </p>
 
         {/* Email button */}
@@ -109,6 +109,21 @@ export function Contact() {
               <ArrowUpRight className="h-3 w-3" />
             </a>
           ))}
+          {/* Resume link */}
+          <a
+            href="/resume.pdf"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-surface text-text-muted hover:border-border-strong hover:text-text transition-all duration-300"
+          >
+            <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            <span className="text-sm font-medium">Resume</span>
+            <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 5v14M19 12l-7 7-7-7" />
+            </svg>
+          </a>
         </div>
 
         {/* Location */}

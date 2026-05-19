@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
 function GithubIcon({ className }: { className?: string }) {
@@ -22,92 +23,109 @@ function GithubIcon({ className }: { className?: string }) {
 import { Section } from "./ui/section";
 import { Card } from "./ui/card";
 import { Pill } from "./ui/pill";
-import { projects } from "@/lib/data";
+import { projects, projectCategories } from "@/lib/data";
 
 export function Projects() {
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  const filteredProjects =
+    activeCategory === "All"
+      ? projects
+      : projects.filter((p) => p.category === activeCategory);
+
   return (
     <Section id="work" eyebrow="WORK" title="Selected work">
-      <div className="grid md:grid-cols-2 gap-6">
-        {projects.map((project, index) => (
-          <motion.div
-            key={project.id}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.3, ease: "easeOut", delay: index * 0.08 }}
+      {/* Filter pills */}
+      <div className="flex flex-wrap gap-2 mb-8">
+        {projectCategories.map((category) => (
+          <button
+            key={category}
+            onClick={() => setActiveCategory(category)}
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+              activeCategory === category
+                ? "bg-accent text-white"
+                : "border border-border bg-surface text-text-muted hover:border-border-strong hover:text-text"
+            }`}
           >
-            <Card className="h-full flex flex-col">
-              {/* Thumbnail area */}
-              <div className="mb-6 rounded-xl bg-gradient-to-br from-accent/20 to-violet-500/10 border border-border p-6 flex items-center justify-center min-h-[120px]">
-                <span className="font-mono text-lg font-semibold text-text">
-                  {project.name}
-                </span>
-              </div>
+            {category}
+          </button>
+        ))}
+      </div>
 
-              {/* Content */}
-              <div className="flex-1 flex flex-col">
-                <p className="text-sm text-accent font-medium mb-2">
-                  {project.tagline}
-                </p>
-                <h3 className="text-xl md:text-2xl font-semibold text-text mb-3">
-                  {project.name}
-                </h3>
-                <p className="text-text-muted leading-relaxed mb-6 flex-1">
-                  {project.description}
-                </p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.slice(0, 5).map((tag) => (
-                    <Pill key={tag} variant="accent">
-                      {tag}
-                    </Pill>
-                  ))}
-                  {project.tags.length > 5 && (
-                    <Pill>+{project.tags.length - 5} more</Pill>
-                  )}
+      <div className="grid md:grid-cols-2 gap-6">
+        <AnimatePresence mode="popLayout">
+          {filteredProjects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.3, ease: "easeOut", delay: index * 0.05 }}
+            >
+              <Card className="h-full flex flex-col group">
+                {/* Thumbnail area with category badge */}
+                <div className="mb-6 rounded-xl bg-gradient-to-br from-accent/20 to-violet-500/10 border border-border p-6 flex items-center justify-between min-h-[120px]">
+                  <span className="font-mono text-lg font-semibold text-text">
+                    {project.name}
+                  </span>
+                  <span className="text-xs text-text-subtle group-hover:text-accent transition-colors">
+                    {project.category}
+                  </span>
                 </div>
 
-                {/* Link */}
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-sm font-medium text-text hover:text-accent transition-colors"
-                >
-                  <GithubIcon className="h-4 w-4" />
-                  View on GitHub
-                  <ArrowUpRight className="h-4 w-4" />
-                </a>
-              </div>
-            </Card>
-          </motion.div>
-        ))}
+                {/* Content */}
+                <div className="flex-1 flex flex-col">
+                  <p className="text-sm text-accent font-medium mb-2">
+                    {project.tagline}
+                  </p>
+                  <h3 className="text-xl md:text-2xl font-semibold text-text mb-3">
+                    {project.name}
+                  </h3>
+                  <p className="text-text-muted leading-relaxed mb-6 flex-1">
+                    {project.description}
+                  </p>
 
-        {/* More on GitHub card */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.3, ease: "easeOut", delay: projects.length * 0.08 }}
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tags.slice(0, 5).map((tag) => (
+                      <Pill key={tag} variant="accent">
+                        {tag}
+                      </Pill>
+                    ))}
+                    {project.tags.length > 5 && (
+                      <Pill>+{project.tags.length - 5} more</Pill>
+                    )}
+                  </div>
+
+                  {/* Link */}
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-sm font-medium text-text hover:text-accent transition-colors"
+                  >
+                    <GithubIcon className="h-4 w-4" />
+                    View on GitHub
+                    <ArrowUpRight className="h-4 w-4" />
+                  </a>
+                </div>
+              </Card>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </div>
+
+      {/* More on GitHub link */}
+      <div className="mt-12 text-center">
+        <a
+          href="https://github.com/MelakuAlehegn"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1 text-sm font-medium text-text-muted hover:text-accent transition-colors"
         >
-          <Card className="h-full flex flex-col items-center justify-center min-h-[300px] md:min-h-full">
-            <GithubIcon className="h-12 w-12 text-text-muted mb-4" />
-            <h3 className="text-xl font-semibold text-text mb-2">More on GitHub</h3>
-            <p className="text-text-muted text-center mb-6 max-w-xs">
-              Explore additional projects and contributions on my GitHub profile.
-            </p>
-            <a
-              href="https://github.com/MelakuAlehegn"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-sm font-medium text-accent hover:text-accent-hover transition-colors"
-            >
-              Visit GitHub
-              <ArrowUpRight className="h-4 w-4" />
-            </a>
-          </Card>
-        </motion.div>
+          More on GitHub
+          <ArrowUpRight className="h-4 w-4" />
+        </a>
       </div>
     </Section>
   );

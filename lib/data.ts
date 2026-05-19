@@ -8,6 +8,7 @@ export interface Project {
   description: string;
   tags: string[];
   link: string;
+  category: string;
 }
 
 export interface Experience {
@@ -26,15 +27,43 @@ export interface WritingLink {
   featured?: boolean;
 }
 
+export interface Certification {
+  name: string;
+  issuer: string;
+  date: string;
+  url?: string;
+}
+
 export const projects: Project[] = [
   {
     id: "project-chimera",
     name: "Project Chimera",
     tagline: "Autonomous AI influencer agent in Java 21",
     description:
-      "Manager / Worker / Judge agent architecture with real LLM-backed reasoning (Gemini), event-sourced memory in PostgreSQL, a custom Model Context Protocol client, and autonomous publishing to Bluesky. Designed and built end-to-end to learn what production agentic AI architecture actually looks like beyond tutorial-grade demos.",
+      "Manager / Worker / Judge agent architecture with LLM-backed reasoning (Gemini), event-sourced memory in PostgreSQL, a custom Model Context Protocol client, and autonomous Bluesky publishing. End-to-end production-grade agentic AI architecture, built from scratch.",
     tags: ["Java 21", "Gemini", "PostgreSQL", "MCP", "Bluesky"],
     link: "https://github.com/MelakuAlehegn/project-chimera",
+    category: "AI / Agentic",
+  },
+  {
+    id: "semantic-image-text",
+    name: "Semantic Image-Text Alignment",
+    tagline: "Automated ad storyboarding with NLP + computer vision",
+    description:
+      "Transforms textual ad descriptions into visually compelling storyboards using ML and computer vision. Pipelines combine NLP for intent parsing with visual generation models for layout — applied to digital advertising creative workflows.",
+    tags: ["Python", "NLP", "Computer Vision", "Jupyter", "ML"],
+    link: "https://github.com/MelakuAlehegn/semantic-image-text-alignment",
+    category: "ML",
+  },
+  {
+    id: "data-warehouse",
+    name: "Data Warehouse",
+    tagline: "Scalable warehouse for swarm-UAV city traffic data",
+    description:
+      "Production data warehouse using PostgreSQL, Apache Airflow, dbt, and Redash. Ingests and analyzes city traffic data collected by swarm UAVs. Demonstrates the full ELT lifecycle: ingestion, modeling, transformation, and BI-grade visualization.",
+    tags: ["PostgreSQL", "Airflow", "dbt", "Redash", "ELT"],
+    link: "https://github.com/MelakuAlehegn/Data-Warehouse",
+    category: "Data Engineering",
   },
   {
     id: "demand-planner",
@@ -43,8 +72,38 @@ export const projects: Project[] = [
     description:
       "Full-stack planning tool with a FastAPI backend serving forecast data and a React + AG Grid frontend. Mock-aware client falls back gracefully when the API is offline, making the frontend independently demoable.",
     tags: ["FastAPI", "React", "AG Grid", "Alembic", "Python"],
-    link: "https://github.com/MelakuAlehegn/demand-planner",
+    link: "https://github.com/MelakuAlehegn/demand_planner",
+    category: "Full Stack",
   },
+  {
+    id: "telecom-analysis",
+    name: "Telecom User Analysis",
+    tagline: "Engagement & growth analytics for a telecom",
+    description:
+      "Data analysis and dashboard project evaluating business growth opportunities in the telecommunications industry. Focuses on user engagement and satisfaction, with end-to-end exploratory analysis through to interactive visualization.",
+    tags: ["Python", "Pandas", "Streamlit", "Analytics"],
+    link: "https://github.com/MelakuAlehegn/TelecomUserAnalysis",
+    category: "Data Science",
+  },
+  {
+    id: "contract-rag",
+    name: "Contract RAG",
+    tagline: "Retrieval-augmented Q&A over legal contracts",
+    description:
+      "Python implementation of a Retrieval-Augmented Generation pipeline focused on legal contract documents. Vector-store backed semantic retrieval with LLM grounding, designed to surface specific clauses on demand.",
+    tags: ["Python", "RAG", "Vector DB", "LLM"],
+    link: "https://github.com/MelakuAlehegn/contract-rag",
+    category: "AI / Agentic",
+  },
+];
+
+export const projectCategories = [
+  "All",
+  "AI / Agentic",
+  "ML",
+  "Data Engineering",
+  "Data Science",
+  "Full Stack",
 ];
 
 export const experience: Experience[] = [
@@ -64,11 +123,23 @@ export const experience: Experience[] = [
     ],
   },
   {
+    id: "nedamco",
+    company: "Nedamco Africa",
+    role: "Cloud Consultant",
+    dates: "Dec 2023 — Mar 2024",
+    location: "Addis Ababa, Ethiopia (Remote)",
+    achievements: [
+      "Cloud architecture consulting on AWS for client deployments.",
+      "Python tooling for cloud automation and infrastructure scripting.",
+      "Worked across the data ingestion and processing layers for client workloads.",
+    ],
+  },
+  {
     id: "openstack",
     company: "OpenStack",
-    role: "Software Developer Intern",
-    dates: "Jan 2025 — May 2025",
-    location: "Remote, United States",
+    role: "Outreachy Intern (Software Developer)",
+    dates: "Dec 2023 — Mar 2024",
+    location: "Remote (Outreachy program)",
     achievements: [
       "Enhanced the UI of OpenStack Manila, implementing a streamlined Django-based workflow for share network creation.",
       "Achieved 90% unit test coverage on the manila-ui project.",
@@ -90,7 +161,7 @@ export const experience: Experience[] = [
 ];
 
 export const featuredPost: WritingLink = {
-  title: "Building a Real AI Agent in Java: The Architecture Most Tutorials Skip",
+  title: "From Spec to System: Building a Real AI Agent Architecture",
   url: "https://medium.com/@melakualehegn34",
   excerpt:
     "A deep dive into the production architecture of agentic AI -- memory, role separation, the revision loop, LLM-as-Judge, and writing a Model Context Protocol client from scratch.",
@@ -120,6 +191,7 @@ export const contact = {
 export const navLinks = [
   { label: "Work", href: "#work" },
   { label: "Experience", href: "#experience" },
+  { label: "Skills", href: "#skills" },
   { label: "Writing", href: "#writing" },
   { label: "Contact", href: "#contact" },
 ];
@@ -127,5 +199,38 @@ export const navLinks = [
 export const heroStats = [
   { value: "15%", label: "Fraud reduction at Arifpay" },
   { value: "$300M+", label: "Potential losses prevented (Airflow ML pipelines)" },
-  { value: "90%", label: "Test coverage on OpenStack contributions" },
+  { value: "1,929", label: "LinkedIn followers" },
+];
+
+// Skills data
+export const skills = {
+  languages: ["Python", "SQL", "Java", "TypeScript", "Bash"],
+  dataML: ["MLflow", "Airflow", "Celery", "dbt", "Pandas", "scikit-learn", "TensorFlow"],
+  backend: ["FastAPI", "Flask", "PostgreSQL", "MongoDB", "Redis", "Docker"],
+  llmsAI: ["Gemini", "Claude", "LangChain", "ChromaDB", "MCP", "RAG"],
+  cloudBI: ["AWS", "Azure", "GCP", "Metabase", "Power BI"],
+};
+
+// Certifications data
+export const certifications: Certification[] = [
+  {
+    name: "Microsoft Certified: Azure Fundamentals",
+    issuer: "Microsoft",
+    date: "Mar 2024",
+  },
+  {
+    name: "AWS Certified Cloud Practitioner",
+    issuer: "Amazon Web Services",
+    date: "Feb 2024",
+  },
+  {
+    name: "Data Engineering, ML & Generative AI",
+    issuer: "10 Academy",
+    date: "Apr 2024 — Sep 2024",
+  },
+  {
+    name: "Software Engineering",
+    issuer: "Holberton School",
+    date: "Feb 2021 — Mar 2022",
+  },
 ];

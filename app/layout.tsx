@@ -16,21 +16,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Melaku Alehegn — Software Engineer (AI / ML)",
+  title: "Melaku Alehegn — AI · ML · Data Engineer",
   description:
-    "Software engineer working on agentic AI systems and production ML. Currently at Arifpay; previously OpenStack and MMCY Tech.",
+    "AI / ML / Data engineer building production systems at the intersection of data, machine learning, and agentic AI. Currently at Arifpay.",
   metadataBase: new URL("https://melakualehegn.com"),
   openGraph: {
-    title: "Melaku Alehegn — Software Engineer (AI / ML)",
-    description: "Building AI systems that ship to production.",
+    title: "Melaku Alehegn — AI · ML · Data Engineer",
+    description: "Building data and AI systems that ship to production.",
     url: "https://melakualehegn.com",
     siteName: "Melaku Alehegn",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Melaku Alehegn — Software Engineer (AI / ML)",
-    description: "Building AI systems that ship to production.",
+    title: "Melaku Alehegn — AI · ML · Data Engineer",
+    description: "Building data and AI systems that ship to production.",
   },
   robots: { index: true, follow: true },
 };
@@ -49,7 +49,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-bg text-text">
         <ThemeProvider
           attribute="data-theme"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem={false}
           storageKey="theme"
         >

@@ -29,14 +29,14 @@
   --color-bg: #FAFAF7;
   --color-surface: #FFFFFF;
   --color-surface-elevated: #FFFFFF;
-  --color-border: #E5E7EB;
-  --color-border-strong: #D1D5DB;
+  --color-border: #E8E6E1;
+  --color-border-strong: #D6D3CB;
   --color-text: #0A0A0F;
-  --color-text-muted: #525258;
-  --color-text-subtle: #9CA3AF;
-  --color-accent: #7C3AED;
-  --color-accent-hover: #6D28D9;
-  --color-accent-soft: rgba(124, 58, 237, 0.08);
+  --color-text-muted: #4B4B52;
+  --color-text-subtle: #8B8B92;
+  --color-accent: #6D28D9;
+  --color-accent-hover: #5B21B6;
+  --color-accent-soft: rgba(109, 40, 217, 0.08);
 }
 
 /* Base styles */

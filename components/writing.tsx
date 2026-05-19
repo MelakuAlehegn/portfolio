@@ -25,6 +25,17 @@ function HashnodeIcon({ className }: { className?: string }) {
 export function Writing() {
   return (
     <Section id="writing" eyebrow="WRITING" title="I publish technical deep-dives on engineering and AI.">
+      {/* Stat line */}
+      <motion.p
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+        className="text-sm text-text-muted mb-8"
+      >
+        1,929 followers on LinkedIn · ~600 impressions per post
+      </motion.p>
+
       <div className="grid md:grid-cols-2 gap-6">
         {/* Featured post */}
         <motion.div
