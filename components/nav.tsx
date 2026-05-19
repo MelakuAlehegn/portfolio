@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
 import { Button } from "./ui/button";
-import { navLinks } from "@/lib/data";
+import { navLinks, resume } from "@/lib/data";
 
 export function Nav() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -52,7 +52,15 @@ export function Nav() {
         {/* Desktop Actions */}
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
-          <Button href="#contact" variant="primary">
+          <Button
+            href={resume.href}
+            variant="secondary"
+            download={resume.downloadName}
+            className="px-5 py-2.5 text-sm"
+          >
+            Resume
+          </Button>
+          <Button href="#contact" variant="primary" className="px-5 py-2.5 text-sm">
             Get in touch
           </Button>
         </div>
@@ -60,6 +68,13 @@ export function Nav() {
         {/* Mobile Menu Button */}
         <div className="flex md:hidden items-center gap-2">
           <ThemeToggle />
+          <a
+            href={resume.href}
+            download={resume.downloadName}
+            className="px-3 py-2 rounded-full border border-border bg-surface text-xs font-medium text-text-muted hover:text-text hover:border-border-strong transition-colors"
+          >
+            Resume
+          </a>
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="p-2 rounded-full border border-border bg-surface text-text"
@@ -89,7 +104,15 @@ export function Nav() {
                 {link.label}
               </a>
             ))}
-            <div className="pt-2 mt-2 border-t border-border">
+            <div className="pt-2 mt-2 border-t border-border flex flex-col gap-2">
+              <Button
+                href={resume.href}
+                variant="secondary"
+                download={resume.downloadName}
+                className="w-full"
+              >
+                Resume
+              </Button>
               <Button href="#contact" variant="primary" className="w-full">
                 Get in touch
               </Button>

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Mail, ArrowUpRight } from "lucide-react";
 import { Section } from "./ui/section";
 import { Button } from "./ui/button";
-import { contact } from "@/lib/data";
+import { contact, resume } from "@/lib/data";
 
 function GithubIcon({ className }: { className?: string }) {
   return (
@@ -111,7 +111,8 @@ export function Contact() {
           ))}
           {/* Resume link */}
           <a
-            href="/resume.pdf"
+            href={resume.href}
+            download={resume.downloadName}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-surface text-text-muted hover:border-border-strong hover:text-text transition-all duration-300"
           >
             <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

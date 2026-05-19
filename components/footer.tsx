@@ -13,12 +13,13 @@ export function Footer() {
         </p>
 
         <a
-          href={contact.github}
+          href={contact.portfolioRepo}
           target="_blank"
           rel="noopener noreferrer"
           className="text-sm text-text-muted hover:text-accent transition-colors"
         >
           Source on GitHub
+          <span className="text-text-subtle"> · portfolio</span>
         </a>
       </div>
     </footer>

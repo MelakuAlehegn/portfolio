@@ -7,6 +7,7 @@ interface ButtonProps {
   variant?: "primary" | "secondary";
   href?: string;
   external?: boolean;
+  download?: string | boolean;
   onClick?: () => void;
   className?: string;
 }
@@ -16,6 +17,7 @@ export function Button({
   variant = "primary",
   href,
   external = false,
+  download,
   onClick,
   className = "",
 }: ButtonProps) {
@@ -31,9 +33,10 @@ export function Button({
   const combinedClassName = `${baseStyles} ${variantStyles[variant]} ${className}`;
 
   if (href) {
-    const linkProps = external
-      ? { target: "_blank", rel: "noopener noreferrer" }
-      : {};
+    const linkProps = {
+      ...(external ? { target: "_blank", rel: "noopener noreferrer" } : {}),
+      ...(download !== undefined ? { download } : {}),
+    };
 
     return (
       <a href={href} className={combinedClassName} {...linkProps}>
