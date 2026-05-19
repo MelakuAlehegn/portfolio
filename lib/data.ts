@@ -1,6 +1,8 @@
 // All content data for the portfolio
 // Centralized so editing copy doesn't require touching component files
 
+import { assetPath } from "./site";
+
 export interface Project {
   id: string;
   name: string;
@@ -203,7 +205,7 @@ export const contact = {
 };
 
 export const resume = {
-  href: "/resume.pdf",
+  href: assetPath("/resume.pdf"),
   downloadName: "Melaku-Alehegn-Resume.pdf",
 };
 
