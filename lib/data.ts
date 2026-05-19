@@ -58,12 +58,11 @@ export const projects: Project[] = [
   {
     id: "data-warehouse",
     name: "Data Warehouse",
-    tagline: "Scalable warehouse for swarm-UAV city traffic data",
-    description:
-      "Production data warehouse using PostgreSQL, Apache Airflow, dbt, and Redash. Ingests and analyzes city traffic data collected by swarm UAVs. Demonstrates the full ELT lifecycle: ingestion, modeling, transformation, and BI-grade visualization.",
-    tags: ["PostgreSQL", "Airflow", "dbt", "Redash", "ELT"],
-    link: "https://github.com/MelakuAlehegn/Data-Warehouse",
-    category: "Data Engineering",
+    "tagline": "Builds an analytics warehouse from pNEUMA drone telemetry",
+    "description": "The pNEUMA dataset captures roughly half a million vehicle trajectories from drone swarms over downtown Athens, stored as irregular-width CSV that breaks vanilla pandas. This project lands the data in Postgres via Airflow, transforms it into a star schema with dbt, and exposes the result as Metabase dashboards — all dockerised, with Cosmos rendering each dbt model as its own Airflow task and Elementary tracking run history. Tests gate downstream models, so a failing assertion stops the pipeline before bad data reaches the dashboards.",
+    "tags": ["Airflow", "dbt", "PostgreSQL", "Docker", "Metabase"],
+    "category": "Data Engineering",
+    "link": "https://github.com/MelakuAlehegn/pneuma-data-warehouse"
   },
   {
     id: "demand-planner",
