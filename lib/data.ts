@@ -115,12 +115,11 @@ export const experience: Experience[] = [
     dates: "Jan 2026 — Present",
     location: "Remote",
     achievements: [
-      "Built and maintained daily Airflow ingestion pipelines across an 11-client retail analytics platform, loading Walmart supplier feeds (demand forecast, satdata, supply plan, store forecast, cut & sold, production orders) into Snowflake via xlsx repair, pandas-driven CSV conversion, Azure Blob staging, and templated COPY INTO.",
-      "Authored and refactored dbt models across raw, stage, cur, and con layers for all 11 client deployments — including incremental merge strategy with natural-key deduplication and item-level rollups using WM_ITEM_NBR to fix grain mismatches for 1:many apparel vendors.",
-      "Led a platform-wide UPC-key audit and enriched base demand-forecast tables with WALMART_UPC_NUMBER via satdata lookups, aligning joins across every client to the canonical product key.",
-      "Built the Snowflake-resident ML forecast pipeline producing per-client weekly demand forecasts, with outputs materialized to client-facing Excel workbooks delivered into shared Box folders for downstream demand planners.",
-      "Diagnosed and resolved production incidents spanning missing warehouse privileges, scheduler self-loops causing duplicate ingestion, whitespace-only cells breaking Snowflake TIMESTAMP parsing, and identifier typos surfacing only at dbt compile time.",
-    ],
+      "Built and maintained Airflow ingestion pipelines across the company's multi-client retail-analytics platform, loading supplier data into Snowflake through Azure Blob staging, headless xlsx repair, pandas-based transformation, and templated COPY INTO operations.",
+      "Built and refactored dbt models across 11 client deployments, implementing incremental deduplication with natural-key merges and correcting data grain for vendors with one-to-many product hierarchies.",
+      "Replaced the manual demand-planning methodology with an automated Snowflake data layer and an internal web tool for demand planners, surfacing forecast, supply, and inventory data directly through the application and removing the prior Excel-driven method.",
+      "Built the Snowflake-Based ML forecast pipeline producing per-client weekly demand forecasts, with outputs materialized to client-facing Excel workbooks delivered into shared Box folders for downstream demand planners.",
+      ],
   },
   {
     id: "arifpay",

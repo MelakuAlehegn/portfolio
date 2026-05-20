@@ -38,7 +38,7 @@ export function HeroNowTicker() {
       className="mt-10 pt-8 border-t border-border max-w-xl"
     >
       <p className="font-mono text-sm leading-relaxed min-h-[1.5rem]">
-        <span className="text-accent font-medium">now</span>
+        <span className="text-accent font-medium">Building</span>
         <span className="text-text-subtle"> → </span>
         <AnimatePresence mode="wait">
           <motion.span
