@@ -63,11 +63,11 @@ const socialLinks = [
     href: contact.medium,
     icon: MediumIcon,
   },
-  {
-    label: "Hashnode",
-    href: contact.hashnode,
-    icon: HashnodeIcon,
-  },
+  // {
+  //   label: "Hashnode",
+  //   href: contact.hashnode,
+  //   icon: HashnodeIcon,
+  // },
 ];
 
 export function Contact() {

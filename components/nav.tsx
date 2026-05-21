@@ -105,15 +105,7 @@ export function Nav() {
               </a>
             ))}
             <div className="pt-2 mt-2 border-t border-border flex flex-col gap-2">
-              <Button
-                href={resume.href}
-                variant="secondary"
-                download={resume.downloadName}
-                className="w-full"
-              >
-                Resume
-              </Button>
-              <Button href="#contact" variant="primary" className="w-full">
+              <Button href="#contact" variant="primary" className="w-full" onClick={() => setIsMobileMenuOpen(false)}>
                 Get in touch
               </Button>
             </div>

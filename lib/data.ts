@@ -187,10 +187,10 @@ export const writingLinks: WritingLink[] = [
     title: "All posts on Medium",
     url: "https://medium.com/@melakualehegn34",
   },
-  {
-    title: "All posts on Hashnode",
-    url: "https://hashnode.com/@Melaku",
-  },
+  // {
+  //   title: "All posts on Hashnode",
+  //   url: "https://hashnode.com/@Melaku",
+  // },
 ];
 
 export const contact = {
@@ -199,7 +199,7 @@ export const contact = {
   github: "https://github.com/MelakuAlehegn",
   portfolioRepo: "https://github.com/MelakuAlehegn/portfolio",
   medium: "https://medium.com/@melakualehegn34",
-  hashnode: "https://hashnode.com/@Melaku",
+  // hashnode: "https://hashnode.com/@Melaku",
   location: "Addis Ababa, Ethiopia",
 };
 

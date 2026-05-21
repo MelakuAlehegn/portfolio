@@ -21,7 +21,7 @@ function CertificationCard({ cert, index }: { cert: typeof certifications[0]; in
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.3, ease: "easeOut", delay: index * 0.08 }}
     >
-      <Card hover={false} className="flex items-center gap-4">
+      <Card hover={false} className="flex items-center gap-4 overflow-hidden">
         <div className="w-12 h-12 rounded-xl bg-surface-elevated border border-border flex items-center justify-center shrink-0">
           <span className="font-mono text-sm font-semibold text-text">{monogram}</span>
         </div>
