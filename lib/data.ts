@@ -47,6 +47,15 @@ export const projects: Project[] = [
     link: "https://github.com/MelakuAlehegn/project-chimera",
     category: "AI / Agentic",
   },
+    {
+    id: "data-warehouse",
+    name: "Data Warehouse",
+    "tagline": "Builds an analytics warehouse from pNEUMA drone telemetry",
+    "description": "The pNEUMA dataset captures roughly half a million vehicle trajectories from drone swarms over downtown Athens, stored as irregular-width CSV that breaks vanilla pandas. This project lands the data in Postgres via Airflow, transforms it into a star schema with dbt, and exposes the result as Metabase dashboards — all dockerised, with Cosmos rendering each dbt model as its own Airflow task and Elementary tracking run history. Tests gate downstream models, so a failing assertion stops the pipeline before bad data reaches the dashboards.",
+    "tags": ["Airflow", "dbt", "PostgreSQL", "Docker", "Metabase"],
+    "category": "Data Engineering",
+    "link": "https://github.com/MelakuAlehegn/pneuma-data-warehouse"
+  },
   {
     id: "semantic-image-text",
     name: "Semantic Image-Text Alignment",
@@ -56,15 +65,6 @@ export const projects: Project[] = [
     tags: ["Python", "NLP", "Computer Vision", "Jupyter", "ML"],
     link: "https://github.com/MelakuAlehegn/semantic-image-text-alignment",
     category: "ML",
-  },
-  {
-    id: "data-warehouse",
-    name: "Data Warehouse",
-    "tagline": "Builds an analytics warehouse from pNEUMA drone telemetry",
-    "description": "The pNEUMA dataset captures roughly half a million vehicle trajectories from drone swarms over downtown Athens, stored as irregular-width CSV that breaks vanilla pandas. This project lands the data in Postgres via Airflow, transforms it into a star schema with dbt, and exposes the result as Metabase dashboards — all dockerised, with Cosmos rendering each dbt model as its own Airflow task and Elementary tracking run history. Tests gate downstream models, so a failing assertion stops the pipeline before bad data reaches the dashboards.",
-    "tags": ["Airflow", "dbt", "PostgreSQL", "Docker", "Metabase"],
-    "category": "Data Engineering",
-    "link": "https://github.com/MelakuAlehegn/pneuma-data-warehouse"
   },
   {
     id: "telecom-analysis",
