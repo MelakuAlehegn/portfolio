@@ -67,16 +67,6 @@ export const projects: Project[] = [
     "link": "https://github.com/MelakuAlehegn/pneuma-data-warehouse"
   },
   {
-    id: "demand-planner",
-    name: "Demand Planner MVP",
-    tagline: "FastAPI + React supply-chain forecasting interface",
-    description:
-      "Full-stack planning tool with a FastAPI backend serving forecast data and a React + AG Grid frontend. Mock-aware client falls back gracefully when the API is offline, making the frontend independently demoable.",
-    tags: ["FastAPI", "React", "AG Grid", "Alembic", "Python"],
-    link: "https://github.com/MelakuAlehegn/demand_planner",
-    category: "Full Stack",
-  },
-  {
     id: "telecom-analysis",
     name: "Telecom User Analysis",
     tagline: "Engagement & growth analytics for a telecom",
