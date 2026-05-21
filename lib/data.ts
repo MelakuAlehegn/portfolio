@@ -204,8 +204,8 @@ export const contact = {
 };
 
 export const resume = {
-  href: assetPath("/resume.pdf"),
-  downloadName: "Melaku-Alehegn-Resume.pdf",
+  href: assetPath("/resumeMelakuAlehegn.pdf"),
+  downloadName: "resumeMelakuAlehegn.pdf",
 };
 
 export const heroNowTopics = [
