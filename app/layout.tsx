@@ -49,8 +49,8 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-bg text-text">
         <ThemeProvider
           attribute="data-theme"
-          defaultTheme="light"
-          enableSystem={false}
+          defaultTheme="system"
+          enableSystem
           storageKey="theme"
         >
           {/* Skip to content link */}
