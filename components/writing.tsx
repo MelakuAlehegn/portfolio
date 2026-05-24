@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, BookOpen } from "lucide-react";
 import { Section } from "./ui/section";
 import { Card } from "./ui/card";
-import { featuredPost, writingLinks } from "@/lib/data";
+import { featuredPosts, writingLinks } from "@/lib/data";
 
 function MediumIcon({ className }: { className?: string }) {
   return (
@@ -33,43 +33,44 @@ export function Writing() {
         transition={{ duration: 0.3, ease: "easeOut" }}
         className="text-sm text-text-muted mb-8"
       >
-        1,929 followers on LinkedIn · ~600 impressions per post
       </motion.p>
 
       <div className="grid md:grid-cols-2 gap-6">
-        {/* Featured post */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
-          className="md:col-span-2"
-        >
-          <Card>
-            <div className="flex items-start gap-4 mb-4">
-              <div className="p-3 rounded-xl bg-accent-soft text-accent">
-                <BookOpen className="h-6 w-6" />
+        {/* Featured posts */}
+        {featuredPosts.map((post, index) => (
+          <motion.div
+            key={post.title}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.3, ease: "easeOut", delay: index * 0.08 }}
+          >
+            <Card>
+              <div className="flex items-start gap-4 mb-4">
+                <div className="p-3 rounded-xl bg-accent-soft text-accent">
+                  <BookOpen className="h-6 w-6" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl md:text-2xl font-semibold text-text mb-2">
+                    {post.title}
+                  </h3>
+                  <p className="text-text-muted leading-relaxed mb-4">
+                    {post.excerpt}
+                  </p>
+                  <a
+                    href={post.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-sm font-medium text-accent hover:text-accent-hover transition-colors"
+                  >
+                    Read on Medium
+                    <ArrowUpRight className="h-4 w-4" />
+                  </a>
+                </div>
               </div>
-              <div className="flex-1">
-                <h3 className="text-xl md:text-2xl font-semibold text-text mb-2">
-                  {featuredPost.title}
-                </h3>
-                <p className="text-text-muted leading-relaxed mb-4">
-                  {featuredPost.excerpt}
-                </p>
-                <a
-                  href={featuredPost.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-sm font-medium text-accent hover:text-accent-hover transition-colors"
-                >
-                  Read on Medium
-                  <ArrowUpRight className="h-4 w-4" />
-                </a>
-              </div>
-            </div>
-          </Card>
-        </motion.div>
+            </Card>
+          </motion.div>
+        ))}
 
         {/* Platform links */}
         {writingLinks.map((link, index) => (

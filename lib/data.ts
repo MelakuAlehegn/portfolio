@@ -164,13 +164,22 @@ export const experience: Experience[] = [
   },
 ];
 
-export const featuredPost: WritingLink = {
-  title: "From Spec to System: Building a Real AI Agent Architecture",
-  url: "https://medium.com/@melakualehegn34/from-spec-to-system-building-a-real-ai-agent-architecture-c3d6ca4f630f",
-  excerpt:
-    "A deep dive into the production architecture of agentic AI -- memory, role separation, the revision loop, LLM-as-Judge, and writing a Model Context Protocol client from scratch.",
-  featured: true,
-};
+export const featuredPosts: WritingLink[] = [
+  {
+    title: "From Spec to System: Building a Real AI Agent Architecture",
+    url: "https://medium.com/@melakualehegn34/from-spec-to-system-building-a-real-ai-agent-architecture-c3d6ca4f630f",
+    excerpt:
+      "A deep dive into the production architecture of agentic AI -- memory, role separation, the revision loop, LLM-as-Judge, and writing a Model Context Protocol client from scratch.",
+    featured: true,
+  },
+  {
+    title: "Building a Robust Data Warehouse for Complex Vehicle Trajectory Data",
+    url: "https://medium.com/@melakualehegn34/building-a-robust-data-warehouse-for-complex-vehicle-trajectory-data",
+    excerpt:
+      "A technical deep dive into building a production-grade data warehouse for high-volume vehicle trajectory data using Postgres, Airflow, dbt, Cosmos, and Elementary.",
+    featured: true,
+  },
+];
 
 export const writingLinks: WritingLink[] = [
   {
