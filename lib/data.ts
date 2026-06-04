@@ -57,15 +57,15 @@ export const projects: Project[] = [
     "link": "https://github.com/MelakuAlehegn/pneuma-data-warehouse"
   },
   {
-    id: "semantic-image-text",
-    name: "Semantic Image-Text Alignment",
-    tagline: "Automated ad storyboarding with NLP + computer vision",
-    description:
-      "Transforms textual ad descriptions into visually compelling storyboards using ML and computer vision. Pipelines combine NLP for intent parsing with visual generation models for layout — applied to digital advertising creative workflows.",
-    tags: ["Python", "NLP", "Computer Vision", "Jupyter", "ML"],
-    link: "https://github.com/MelakuAlehegn/semantic-image-text-alignment",
-    category: "ML",
-  },
+  id: "nl-to-sql",
+  name: "Natural Language to SQL",
+  tagline: "Ask a database questions in plain English",
+  description:
+    "Translates natural-language questions into safe, read-only SQL with Gemini, executes them live against PostgreSQL, and returns results, a plain-English explanation, and an auto-inferred chart. A self-correcting loop feeds execution errors back to the model to repair its own queries, and defense-in-depth (keyword screening, EXPLAIN pre-flight, a least-privilege read-only role) keeps generation safe. Backed by an execution-accuracy eval harness, a pytest suite, and GitHub Actions CI.",
+  tags: ["FastAPI", "Gemini", "PostgreSQL", "Next.js", "Docker"],
+  link: "https://github.com/MelakuAlehegn/natural-language-to-sql",
+  category: "Full Stack · AI / Agentic",
+},
   {
     id: "telecom-analysis",
     name: "Telecom User Analysis",
@@ -74,7 +74,8 @@ export const projects: Project[] = [
       "Data analysis and dashboard project evaluating business growth opportunities in the telecommunications industry. Focuses on user engagement and satisfaction, with end-to-end exploratory analysis through to interactive visualization.",
     tags: ["Python", "Pandas", "Streamlit", "Analytics"],
     link: "https://github.com/MelakuAlehegn/TelecomUserAnalysis",
-    category: "Data Science",
+    category: "Data Science"
+
   },
   {
     id: "contract-rag",

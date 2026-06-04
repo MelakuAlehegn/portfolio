@@ -44,7 +44,7 @@ export function Projects() {
   const filteredProjects =
     activeCategory === "All"
       ? projects
-      : projects.filter((p) => p.category === activeCategory);
+      : projects.filter((p) => p.category.split(" · ").includes(activeCategory));
 
   const activeTabId = `project-tab-${activeCategory.replace(/\s+/g, "-").replace(/\//g, "-").toLowerCase()}`;
 
