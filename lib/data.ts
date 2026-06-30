@@ -57,6 +57,16 @@ export const projects: Project[] = [
     "link": "https://github.com/MelakuAlehegn/pneuma-data-warehouse"
   },
   {
+    id: "verba",
+    name: "Verba",
+    tagline: "Chat with your documents — grounded, cited answers",
+    description:
+      "Multi-tenant Retrieval-Augmented Generation app, built backend-first. Documents are parsed, chunked, and embedded into the Qdrant vector store by an async Celery worker; questions are answered only from a user's own files — refusing to guess below a relevance threshold — with citations linking back to the exact source passages. Answers stream token-by-token over Server-Sent Events. Strict route → service → crud layering on FastAPI, with Postgres as the source of truth and the vector store as a rebuildable index.",
+    tags: ["FastAPI", "Qdrant", "RAG", "Celery", "Gemini", "React"],
+    link: "https://github.com/MelakuAlehegn/verba",
+    category: "Full Stack · AI / Agentic",
+  },
+  {
   id: "nl-to-sql",
   name: "Natural Language to SQL",
   tagline: "Ask a database questions in plain English",
@@ -76,16 +86,6 @@ export const projects: Project[] = [
     link: "https://github.com/MelakuAlehegn/TelecomUserAnalysis",
     category: "Data Science"
 
-  },
-  {
-    id: "contract-rag",
-    name: "Contract RAG",
-    tagline: "Retrieval-augmented Q&A over legal contracts",
-    description:
-      "Python implementation of a Retrieval-Augmented Generation pipeline focused on legal contract documents. Vector-store backed semantic retrieval with LLM grounding, designed to surface specific clauses on demand.",
-    tags: ["Python", "RAG", "Vector DB", "LLM"],
-    link: "https://github.com/MelakuAlehegn/contract-rag",
-    category: "AI / Agentic",
   },
 ];
 
