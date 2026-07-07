@@ -48,12 +48,38 @@
 html {
   scroll-behavior: smooth;
   background: var(--color-bg);
+  --spotlight-x: 58vw;
+  --spotlight-y: 28vh;
 }
 
 body {
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+.ambient-spotlight {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 240ms ease;
+  background:
+    radial-gradient(
+      520px circle at var(--spotlight-x) var(--spotlight-y),
+      rgba(159, 176, 191, 0.14),
+      rgba(159, 176, 191, 0.055) 34%,
+      transparent 68%
+    );
+}
+
+[data-theme="dark"] .ambient-spotlight {
+  opacity: 1;
+}
+
+[data-theme="light"] .ambient-spotlight {
+  display: none;
 }
 
 /* Reduced motion */

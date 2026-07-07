@@ -32,7 +32,7 @@ export function TimelineItem({
 
       <div className="space-y-4">
         <div>
-          <h3 className="font-serif text-2xl leading-tight text-text md:text-3xl">{company}</h3>
+          <h3 className="font-serif text-xl leading-tight text-text md:text-2xl">{company}</h3>
           <p className="mt-1 text-sm uppercase tracking-[0.22em] text-text-subtle">
             {role}
           </p>

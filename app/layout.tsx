@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
+import { AmbientSpotlight } from "@/components/ambient-spotlight";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -33,18 +34,19 @@ export default function RootLayout({
       className="h-full antialiased"
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-bg text-text overflow-x-hidden">
+      <body className="relative min-h-full flex flex-col bg-bg text-text overflow-x-hidden">
         <ThemeProvider
           attribute="data-theme"
           defaultTheme="system"
           enableSystem
           storageKey="theme"
         >
+          <AmbientSpotlight />
           {/* Skip to content link */}
           <a href="#main" className="skip-link">
             Skip to content
           </a>
-          <main id="main" className="flex-1">
+          <main id="main" className="relative z-10 flex-1">
             {children}
           </main>
         </ThemeProvider>

@@ -75,7 +75,7 @@ export function Contact() {
         <div className="mt-10 border-t border-border pt-6">
           <a
             href={`mailto:${contact.email}`}
-            className="inline-flex items-center gap-3 font-serif text-2xl leading-none tracking-tight text-text md:text-4xl"
+            className="inline-flex items-center gap-3 font-serif text-xl leading-none text-text md:text-3xl"
           >
             <Mail className="h-5 w-5 text-text-subtle md:h-6 md:w-6" />
             {contact.email}

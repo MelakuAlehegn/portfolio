@@ -87,7 +87,7 @@ export function Projects() {
 
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-baseline justify-between gap-3">
-                    <h3 className="font-serif text-2xl leading-tight text-text md:text-3xl">
+                    <h3 className="font-serif text-xl leading-tight text-text md:text-2xl">
                       {project.name}
                     </h3>
                     <span className="text-xs uppercase tracking-[0.22em] text-text-subtle">

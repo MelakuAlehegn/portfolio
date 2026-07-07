@@ -3,81 +3,76 @@
 import { motion } from "framer-motion";
 import { Eyebrow } from "./ui/eyebrow";
 import { Button } from "./ui/button";
-import { HeroTerminal } from "./hero-terminal";
-import { HeroNowTicker } from "./hero-now-ticker";
+import { resume } from "@/lib/data";
 
 export function Hero() {
   return (
-    <section className="px-6 md:px-12 pt-32 pb-20 md:pb-28">
+    <section id="about" className="scroll-mt-24 px-6 md:px-12 pt-32 pb-20 md:pb-24">
       <div className="mx-auto max-w-6xl">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.35fr)_minmax(320px,0.75fr)] lg:gap-12 items-start">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+          className="max-w-4xl"
+        >
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="max-w-4xl"
+            transition={{ duration: 0.3, delay: 0.1 }}
+            className="mb-7"
           >
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: 0.1 }}
-              className="mb-8"
-            >
-              <Eyebrow>AI ENGINEER · ML ENGINEER · DATA SCIENTIST</Eyebrow>
-            </motion.div>
+            <Eyebrow>AI / ML / DATA ENGINEER</Eyebrow>
+          </motion.div>
 
-            <div className="mb-6 flex items-center gap-3 text-sm text-text-subtle">
-              <span className="h-px w-10 bg-border-strong" />
-              <span>Minimal portfolio / production-minded systems</span>
-            </div>
+          <motion.h1
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: 0.15 }}
+            className="max-w-3xl font-serif text-3xl leading-tight text-text"
+          >
+            I&apos;m Melaku Alehegn, an AI, machine learning, and data engineer
+            building reliable systems from messy real-world data.
+          </motion.h1>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: 0.15 }}
-              className="font-serif text-[clamp(3rem,7vw,6.5rem)] leading-[0.96] tracking-[-0.04em] text-text"
-            >
-              Building data and AI systems that ship to production.
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: 0.2 }}
-              className="mt-6 max-w-2xl text-base leading-8 text-text-muted md:text-lg"
-            >
-              I&apos;m Melaku. I build production AI and ML systems end to end —
-              ingestion pipelines, model lifecycles, agent loops, and the
-              infrastructure underneath that has to keep them running once real
-              users show up.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: 0.25 }}
-              className="mt-8 flex flex-wrap gap-3"
-            >
-              <Button href="#work" variant="primary">
-                View my work
-              </Button>
-              <Button href="#contact" variant="secondary">
-                Let&apos;s talk
-              </Button>
-            </motion.div>
-
-            <HeroNowTicker />
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
+            className="mt-8 grid gap-6 border-t border-border pt-8 text-base leading-8 text-text-muted md:grid-cols-2"
+          >
+            <p>
+              I work across the full path from data ingestion to model behavior:
+              pipelines, evaluation loops, retrieval systems, application APIs,
+              and the infrastructure that keeps those pieces understandable.
+            </p>
+            <p>
+              I care about software that is clear enough to maintain and useful
+              enough to survive production. My work sits at the intersection of
+              backend engineering, applied machine learning, and data systems.
+            </p>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: 0.3 }}
-            className="lg:pt-10"
+            transition={{ duration: 0.3, delay: 0.25 }}
+            className="mt-8 flex flex-wrap gap-3"
           >
-            <HeroTerminal />
+            <Button href="#work" variant="primary">
+              View work
+            </Button>
+            <Button
+              href={resume.href}
+              variant="secondary"
+              download={resume.downloadName}
+            >
+              Resume
+            </Button>
+            <Button href="#contact" variant="secondary">
+              Contact
+            </Button>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

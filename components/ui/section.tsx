@@ -44,7 +44,7 @@ export function Section({
               </div>
             )}
             {title && (
-              <h2 className="max-w-sm font-serif text-3xl leading-[1.08] tracking-tight text-text md:text-5xl">
+              <h2 className="max-w-sm font-serif text-2xl leading-tight text-text md:text-3xl">
                 {title}
               </h2>
             )}

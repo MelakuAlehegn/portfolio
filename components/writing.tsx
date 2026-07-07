@@ -40,7 +40,7 @@ export function Writing() {
               </div>
 
               <div>
-                <h3 className="font-serif text-2xl leading-tight text-text md:text-3xl">
+                <h3 className="font-serif text-xl leading-tight text-text md:text-2xl">
                   {post.title}
                 </h3>
                 <p className="mt-3 max-w-3xl text-sm leading-7 text-text-muted md:text-base">

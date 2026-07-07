@@ -59,7 +59,7 @@ export const projects: Project[] = [
   {
     id: "verba",
     name: "Verba",
-    tagline: "Chat with your documents — grounded, cited answers",
+    tagline: "Full-stack RAG application for document Q&A",
     description:
       "Multi-tenant Retrieval-Augmented Generation app, built backend-first. Documents are parsed, chunked, and embedded into the Qdrant vector store by an async Celery worker; questions are answered only from a user's own files — refusing to guess below a relevance threshold — with citations linking back to the exact source passages. Answers stream token-by-token over Server-Sent Events. Strict route → service → crud layering on FastAPI, with Postgres as the source of truth and the vector store as a rebuildable index.",
     tags: ["FastAPI", "Qdrant", "RAG", "Celery", "Gemini", "React"],
@@ -69,7 +69,7 @@ export const projects: Project[] = [
   {
   id: "nl-to-sql",
   name: "Natural Language to SQL",
-  tagline: "Ask a database questions in plain English",
+  tagline: "LLM-based tool for querying databases",
   description:
     "Translates natural-language questions into safe, read-only SQL with Gemini, executes them live against PostgreSQL, and returns results, a plain-English explanation, and an auto-inferred chart. A self-correcting loop feeds execution errors back to the model to repair its own queries, and defense-in-depth (keyword screening, EXPLAIN pre-flight, a least-privilege read-only role) keeps generation safe. Backed by an execution-accuracy eval harness, a pytest suite, and GitHub Actions CI.",
   tags: ["FastAPI", "Gemini", "PostgreSQL", "Next.js", "Docker"],

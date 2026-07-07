@@ -22,7 +22,7 @@ export function Nav() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 md:px-6 pt-4 md:pt-6">
       <nav
-        className={`mx-auto max-w-6xl border-b backdrop-blur-sm px-4 py-3 transition-colors duration-300 md:px-6 ${
+        className={`mx-auto flex max-w-6xl items-center justify-between gap-6 border-b backdrop-blur-sm px-4 py-3 transition-colors duration-300 md:px-6 ${
           isScrolled
             ? "border-border bg-bg/92"
             : "border-border/40 bg-bg/70"
