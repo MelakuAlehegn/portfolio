@@ -22,10 +22,10 @@ export function Nav() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 md:px-6 pt-4 md:pt-6">
       <nav
-        className={`mx-auto flex max-w-6xl items-center justify-between gap-6 border-b backdrop-blur-sm px-4 py-3 transition-colors duration-300 md:px-6 ${
+        className={`mx-auto flex max-w-6xl items-center justify-between gap-6 rounded-full border px-5 py-3 backdrop-blur-md transition-all duration-300 md:px-6 ${
           isScrolled
-            ? "border-border bg-bg/92"
-            : "border-border/40 bg-bg/70"
+            ? "border-border bg-bg/90 shadow-[0_1px_20px_-12px_rgba(0,0,0,0.35)]"
+            : "border-border/50 bg-bg/60"
         }`}
       >
         <div className="flex items-center gap-4">
@@ -92,7 +92,7 @@ export function Nav() {
       </nav>
 
       {isMobileMenuOpen && (
-        <div className="mx-auto mt-2 max-w-6xl border border-border bg-bg p-4 md:hidden">
+        <div className="mx-auto mt-2 max-w-6xl rounded-2xl border border-border bg-bg p-4 md:hidden">
           <div className="flex flex-col gap-2">
             {navLinks.map((link) => (
               <a

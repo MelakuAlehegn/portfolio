@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { Eyebrow } from "./ui/eyebrow";
 import { Button } from "./ui/button";
-import { resume } from "@/lib/data";
 
 export function Hero() {
   return (
@@ -34,23 +33,19 @@ export function Hero() {
             building reliable systems from messy real-world data.
           </motion.h1>
 
-          <motion.div
+          <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.2 }}
-            className="mt-8 grid gap-6 border-t border-border pt-8 text-base leading-8 text-text-muted md:grid-cols-2"
+            className="mt-8 max-w-2xl border-t border-border pt-8 text-base leading-8 text-text-muted"
           >
-            <p>
-              I work across the full path from data ingestion to model behavior:
-              pipelines, evaluation loops, retrieval systems, application APIs,
-              and the infrastructure that keeps those pieces understandable.
-            </p>
-            <p>
-              I care about software that is clear enough to maintain and useful
-              enough to survive production. My work sits at the intersection of
-              backend engineering, applied machine learning, and data systems.
-            </p>
-          </motion.div>
+            I work across the full path from data ingestion to model behavior —
+            pipelines, evaluation loops, retrieval systems, application APIs, and
+            the infrastructure that keeps those pieces understandable. It sits at
+            the intersection of backend engineering, applied machine learning, and
+            data systems: software clear enough to maintain and useful enough to
+            survive production.
+          </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -61,15 +56,8 @@ export function Hero() {
             <Button href="#work" variant="primary">
               View work
             </Button>
-            <Button
-              href={resume.href}
-              variant="secondary"
-              download={resume.downloadName}
-            >
-              Resume
-            </Button>
             <Button href="#contact" variant="secondary">
-              Contact
+              Get in touch
             </Button>
           </motion.div>
         </motion.div>
