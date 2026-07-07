@@ -1,24 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { heroNowTopics } from "@/lib/data";
 
 export function HeroNowTicker() {
   const [index, setIndex] = useState(0);
-  const [reducedMotion, setReducedMotion] = useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(mediaQuery.matches);
-
-    const handleChange = (event: MediaQueryListEvent) => {
-      setReducedMotion(event.matches);
-    };
-
-    mediaQuery.addEventListener("change", handleChange);
-    return () => mediaQuery.removeEventListener("change", handleChange);
-  }, []);
+  const reducedMotion = useReducedMotion();
 
   useEffect(() => {
     if (reducedMotion) return;
@@ -35,11 +23,12 @@ export function HeroNowTicker() {
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: 0.35, ease: "easeOut" }}
-      className="mt-10 pt-8 border-t border-border max-w-xl"
+      className="mt-10 max-w-2xl border-t border-border pt-6"
     >
-      <p className="font-mono text-sm leading-relaxed min-h-[1.5rem]">
-        <span className="text-accent font-medium">Building</span>
-        <span className="text-text-subtle"> → </span>
+      <p className="font-mono text-xs uppercase tracking-[0.24em] text-text-subtle">
+        Now
+      </p>
+      <p className="mt-3 min-h-[1.75rem] text-sm leading-7 text-text-muted md:text-base">
         <AnimatePresence mode="wait">
           <motion.span
             key={heroNowTopics[index]}
@@ -47,15 +36,11 @@ export function HeroNowTicker() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="text-text-muted"
+            className="inline-block"
           >
             {heroNowTopics[index]}
           </motion.span>
         </AnimatePresence>
-      </p>
-      <p className="mt-3 text-xs text-text-subtle font-mono">
-        → click the terminal · type{" "}
-        <span className="text-text-muted">help</span>
       </p>
     </motion.div>
   );

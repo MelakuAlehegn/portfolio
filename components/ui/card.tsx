@@ -8,12 +8,12 @@ interface CardProps {
 
 export function Card({ children, className = "", hover = true }: CardProps) {
   const hoverStyles = hover
-    ? "transition-all duration-300 hover:border-border-strong hover:-translate-y-0.5"
+    ? "transition-colors duration-200 hover:border-border-strong hover:bg-surface-elevated"
     : "";
 
   return (
     <div
-      className={`rounded-2xl border border-border bg-surface p-6 md:p-8 ${hoverStyles} ${className}`}
+      className={`rounded-xl border border-border bg-surface px-5 py-5 md:px-6 md:py-6 ${hoverStyles} ${className}`}
     >
       {children}
     </div>

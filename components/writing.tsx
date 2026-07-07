@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, BookOpen } from "lucide-react";
 import { Section } from "./ui/section";
-import { Card } from "./ui/card";
 import { featuredPosts, writingLinks } from "@/lib/data";
 
 function MediumIcon({ className }: { className?: string }) {
@@ -25,86 +24,72 @@ function HashnodeIcon({ className }: { className?: string }) {
 export function Writing() {
   return (
     <Section id="writing" eyebrow="WRITING" title="I publish technical deep-dives on engineering and AI.">
-      {/* Stat line */}
-      <motion.p
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
-        className="text-sm text-text-muted mb-8"
-      >
-      </motion.p>
-
-      <div className="grid md:grid-cols-2 gap-6">
-        {/* Featured posts */}
-        {featuredPosts.map((post, index) => (
-          <motion.div
-            key={post.title}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.3, ease: "easeOut", delay: index * 0.08 }}
-          >
-            <Card>
-              <div className="flex items-start gap-4 mb-4">
-                <div className="p-3 rounded-xl bg-accent-soft text-accent">
-                  <BookOpen className="h-6 w-6" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl md:text-2xl font-semibold text-text mb-2">
-                    {post.title}
-                  </h3>
-                  <p className="text-text-muted leading-relaxed mb-4">
-                    {post.excerpt}
-                  </p>
-                  <a
-                    href={post.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-sm font-medium text-accent hover:text-accent-hover transition-colors"
-                  >
-                    Read on Medium
-                    <ArrowUpRight className="h-4 w-4" />
-                  </a>
-                </div>
+      <div className="space-y-10">
+        <div className="border-t border-border">
+          {featuredPosts.map((post, index) => (
+            <motion.article
+              key={post.title}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.3, ease: "easeOut", delay: index * 0.06 }}
+              className="grid gap-4 border-b border-border py-6 md:grid-cols-[48px_minmax(0,1fr)_160px] md:gap-6 md:py-8"
+            >
+              <div className="flex h-12 w-12 items-center justify-center rounded-full border border-border text-text-subtle">
+                <BookOpen className="h-5 w-5" />
               </div>
-            </Card>
-          </motion.div>
-        ))}
 
-        {/* Platform links */}
-        {writingLinks.map((link, index) => (
-          <motion.div
-            key={link.title}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.3, ease: "easeOut", delay: (index + 1) * 0.08 }}
-          >
-            <Card className="h-full">
-              <a
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 group"
-              >
-                <div className="p-3 rounded-xl bg-surface-elevated border border-border group-hover:border-border-strong transition-colors">
+              <div>
+                <h3 className="font-serif text-2xl leading-tight text-text md:text-3xl">
+                  {post.title}
+                </h3>
+                <p className="mt-3 max-w-3xl text-sm leading-7 text-text-muted md:text-base">
+                  {post.excerpt}
+                </p>
+              </div>
+
+              <div className="md:justify-self-end">
+                <a
+                  href={post.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-text"
+                >
+                  Read
+                  <ArrowUpRight className="h-4 w-4" />
+                </a>
+              </div>
+            </motion.article>
+          ))}
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2">
+          {writingLinks.map((link, index) => (
+            <motion.a
+              key={link.title}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.3, ease: "easeOut", delay: (index + 1) * 0.06 }}
+              className="flex items-center justify-between border-t border-border pt-4 text-text-muted transition-colors hover:text-text"
+            >
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-border">
                   {link.title.includes("Medium") ? (
-                    <MediumIcon className="h-6 w-6 text-text" />
+                    <MediumIcon className="h-5 w-5" />
                   ) : (
-                    <HashnodeIcon className="h-6 w-6 text-text" />
+                    <HashnodeIcon className="h-5 w-5" />
                   )}
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-text group-hover:text-accent transition-colors">
-                    {link.title}
-                  </h3>
-                </div>
-                <ArrowUpRight className="h-5 w-5 text-text-muted group-hover:text-accent transition-colors" />
-              </a>
-            </Card>
-          </motion.div>
-        ))}
+                </span>
+                <span className="text-sm font-medium">{link.title}</span>
+              </div>
+              <ArrowUpRight className="h-4 w-4" />
+            </motion.a>
+          ))}
+        </div>
       </div>
     </Section>
   );

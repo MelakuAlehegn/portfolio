@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { Mail, ArrowUpRight } from "lucide-react";
 import { Section } from "./ui/section";
-import { Button } from "./ui/button";
 import { contact, resume } from "@/lib/data";
 
 function GithubIcon({ className }: { className?: string }) {
@@ -27,14 +26,6 @@ function MediumIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="currentColor">
       <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
-    </svg>
-  );
-}
-
-function HashnodeIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M22.351 8.019c.478-3.276-1.936-6.012-5.358-6.012h-.004c-.92.004-1.822.211-2.645.599l-9.95 4.883a5.467 5.467 0 00-3.046 4.907c.004 2.006 1.094 3.85 2.867 4.842l9.55 5.186c.809.44 1.717.668 2.645.672h.006c3.418 0 5.83-2.736 5.358-6.006-.15-1.045-.595-2.015-1.28-2.78a5.48 5.48 0 001.28-2.78c.147-1.011-.09-2.023-.673-2.906zM11.082 12.77l-4.63 2.271a2.145 2.145 0 01-1.714.182 2.134 2.134 0 01-1.47-1.478 2.15 2.15 0 011.178-2.524l4.629-2.27c.613-.301 1.33-.295 1.94.014.613.31 1.052.907 1.187 1.586a2.146 2.146 0 01-1.22 2.22z" />
     </svg>
   );
 }
@@ -63,11 +54,6 @@ const socialLinks = [
     href: contact.medium,
     icon: MediumIcon,
   },
-  // {
-  //   label: "Hashnode",
-  //   href: contact.hashnode,
-  //   icon: HashnodeIcon,
-  // },
 ];
 
 export function Contact() {
@@ -78,57 +64,58 @@ export function Contact() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.3, ease: "easeOut" }}
-        className="max-w-2xl mx-auto text-center"
+        className="mx-auto max-w-4xl"
       >
-        <p className="text-lg text-text-muted leading-relaxed mb-8">
+        <p className="mx-auto max-w-2xl text-base leading-8 text-text-muted md:text-lg">
           I&apos;m open to senior software, AI/ML, and data engineering roles, freelance
           work with strong technical mandates, and conversations with people building
           thoughtful systems at the data + AI intersection.
         </p>
 
-        {/* Email button */}
-        <div className="mb-12">
-          <Button href={`mailto:${contact.email}`} variant="primary" className="text-lg px-8 py-4">
-            <Mail className="h-5 w-5" />
+        <div className="mt-10 border-t border-border pt-6">
+          <a
+            href={`mailto:${contact.email}`}
+            className="inline-flex items-center gap-3 font-serif text-2xl leading-none tracking-tight text-text md:text-4xl"
+          >
+            <Mail className="h-5 w-5 text-text-subtle md:h-6 md:w-6" />
             {contact.email}
-          </Button>
+          </a>
         </div>
 
-        {/* Social links */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
+        <div className="mt-8 grid gap-3 border-t border-border pt-6 sm:grid-cols-2 lg:grid-cols-4">
           {socialLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-surface text-text-muted hover:border-border-strong hover:text-text transition-all duration-300"
+              className="flex items-center justify-between border-b border-border pb-3 text-sm text-text-muted transition-colors hover:text-text"
             >
-              <link.icon className="h-4 w-4" />
-              <span className="text-sm font-medium">{link.label}</span>
-              <ArrowUpRight className="h-3 w-3" />
+              <span className="flex items-center gap-2">
+                <link.icon className="h-4 w-4" />
+                {link.label}
+              </span>
+              <ArrowUpRight className="h-3.5 w-3.5" />
             </a>
           ))}
-          {/* Resume link */}
           <a
             href={resume.href}
             download={resume.downloadName}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-surface text-text-muted hover:border-border-strong hover:text-text transition-all duration-300"
+            className="flex items-center justify-between border-b border-border pb-3 text-sm text-text-muted transition-colors hover:text-text"
           >
-            <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-              <polyline points="7 10 12 15 17 10" />
-              <line x1="12" y1="15" x2="12" y2="3" />
-            </svg>
-            <span className="text-sm font-medium">Resume</span>
-            <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M12 5v14M19 12l-7 7-7-7" />
-            </svg>
+            <span className="flex items-center gap-2">
+              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Resume
+            </span>
+            <ArrowUpRight className="h-3.5 w-3.5" />
           </a>
         </div>
 
-        {/* Location */}
-        <p className="text-sm text-text-subtle">
+        <p className="mt-8 text-sm text-text-subtle">
           Currently in {contact.location}
         </p>
       </motion.div>

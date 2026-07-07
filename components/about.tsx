@@ -6,7 +6,7 @@ export function About() {
   return (
     <Section id="about" eyebrow="ABOUT" title="I build software at the edge of AI and production reality.">
       <div className="max-w-3xl">
-        <div className="space-y-6 text-lg text-text-muted leading-relaxed">
+        <div className="space-y-6 text-base md:text-lg text-text-muted leading-8">
           <p>
             Most recently a Data Scientist at Arifpay in Addis Ababa (through May 2026),
             working on payment fraud detection, merchant credit scoring, and
