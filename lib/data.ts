@@ -43,7 +43,7 @@ export const projects: Project[] = [
     tagline: "Autonomous AI influencer agent in Java 21",
     description:
       "Manager / Worker / Judge agent architecture with LLM-backed reasoning (Gemini), event-sourced memory in PostgreSQL, a custom Model Context Protocol client, and autonomous Bluesky publishing. End-to-end production-grade agentic AI architecture, built from scratch.",
-    tags: ["Java 21", "Gemini", "PostgreSQL", "MCP", "Bluesky"],
+    tags: ["Java 21", "Gemini", "PostgreSQL", "MCP", "LLM", "AI Agents", "Multi-Agent Systems"],
     link: "https://github.com/MelakuAlehegn/project-chimera",
     category: "AI / Agentic",
   },
@@ -142,7 +142,7 @@ export const experience: Experience[] = [
   {
     id: "openstack",
     company: "OpenStack",
-    role: "Outreachy Intern (Software Developer)",
+    role: "Software Developer Intern",
     dates: "Dec 2023 — Mar 2024",
     location: "Remote (Outreachy program)",
     achievements: [
@@ -220,10 +220,10 @@ export const heroNowTopics = [
 
 export const navLinks = [
   { label: "About", href: "#about" },
-  { label: "Work", href: "#work" },
+  { label: "Projects", href: "#work" },
   { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
-  { label: "Writing", href: "#writing" },
+  { label: "Blog", href: "#writing" },
   { label: "Contact", href: "#contact" },
 ];
 

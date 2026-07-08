@@ -23,7 +23,7 @@ function HashnodeIcon({ className }: { className?: string }) {
 
 export function Writing() {
   return (
-    <Section id="writing" eyebrow="WRITING" title="Deep-dives on AI & engineering.">
+    <Section id="writing" eyebrow="Blog" title="Deep-dives on AI & engineering.">
       <div className="space-y-10">
         <div className="border-t border-border">
           {featuredPosts.map((post, index) => (

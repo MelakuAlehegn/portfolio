@@ -62,7 +62,7 @@ export function Projects() {
   const activeTabId = `project-tab-${activeCategory.replace(/\s+/g, "-").replace(/\//g, "-").toLowerCase()}`;
 
   return (
-    <Section id="work" eyebrow="WORK" title="Selected work">
+    <Section id="work" eyebrow="Projects" title="Selected work">
       <div className="space-y-6">
         <div
           role="tablist"
