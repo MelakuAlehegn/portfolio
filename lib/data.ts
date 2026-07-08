@@ -39,22 +39,13 @@ export interface Certification {
 export const projects: Project[] = [
   {
     id: "project-chimera",
-    name: "Project Chimera",
+    name: "Chimera",
     tagline: "Autonomous AI influencer agent in Java 21",
     description:
       "Manager / Worker / Judge agent architecture with LLM-backed reasoning (Gemini), event-sourced memory in PostgreSQL, a custom Model Context Protocol client, and autonomous Bluesky publishing. End-to-end production-grade agentic AI architecture, built from scratch.",
     tags: ["Java 21", "Gemini", "PostgreSQL", "MCP", "Bluesky"],
     link: "https://github.com/MelakuAlehegn/project-chimera",
     category: "AI / Agentic",
-  },
-    {
-    id: "data-warehouse",
-    name: "Data Warehouse",
-    "tagline": "Builds an analytics warehouse from pNEUMA drone telemetry",
-    "description": "The pNEUMA dataset captures roughly half a million vehicle trajectories from drone swarms over downtown Athens, stored as irregular-width CSV that breaks vanilla pandas. This project lands the data in Postgres via Airflow, transforms it into a star schema with dbt, and exposes the result as Metabase dashboards — all dockerised, with Cosmos rendering each dbt model as its own Airflow task and Elementary tracking run history. Tests gate downstream models, so a failing assertion stops the pipeline before bad data reaches the dashboards.",
-    "tags": ["Airflow", "dbt", "PostgreSQL", "Docker", "Metabase"],
-    "category": "Data Engineering",
-    "link": "https://github.com/MelakuAlehegn/pneuma-data-warehouse"
   },
   {
     id: "verba",
@@ -65,6 +56,15 @@ export const projects: Project[] = [
     tags: ["FastAPI", "Qdrant", "RAG", "Celery", "Gemini", "React"],
     link: "https://github.com/MelakuAlehegn/verba",
     category: "Full Stack · AI / Agentic",
+  },
+  {
+    id: "data-warehouse",
+    name: "Data Warehouse",
+    "tagline": "Builds an analytics warehouse from pNEUMA drone telemetry",
+    "description": "The pNEUMA dataset captures roughly half a million vehicle trajectories from drone swarms over downtown Athens, stored as irregular-width CSV that breaks vanilla pandas. This project lands the data in Postgres via Airflow, transforms it into a star schema with dbt, and exposes the result as Metabase dashboards — all dockerised, with Cosmos rendering each dbt model as its own Airflow task and Elementary tracking run history. Tests gate downstream models, so a failing assertion stops the pipeline before bad data reaches the dashboards.",
+    "tags": ["Airflow", "dbt", "PostgreSQL", "Docker", "Metabase"],
+    "category": "Data Engineering",
+    "link": "https://github.com/MelakuAlehegn/pneuma-data-warehouse"
   },
   {
   id: "nl-to-sql",
@@ -238,6 +238,7 @@ export const skills = {
     "Pandas",
     "scikit-learn",
     "TensorFlow",
+    "Time series forecasting",
     "Cosmos",
   ],
   "Backend & Databases": [
@@ -245,9 +246,11 @@ export const skills = {
     "Flask",
     "PostgreSQL",
     "MongoDB",
+    "Redis",
+    "SQLAlchemy + Alembic",
     "Docker",
   ],
-  "LLMs & AI": ["Gemini", "Claude", "LangChain", "ChromaDB", "MCP", "RAG"],
+  "LLMs & AI": ["Gemini", "Claude", "LangChain", "ChromaDB", "Qdrant", "MCP", "RAG"],
   "Cloud & BI": [
     "AWS",
     "Azure",

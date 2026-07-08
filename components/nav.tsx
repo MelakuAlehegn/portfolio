@@ -1,32 +1,18 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
 import { Button } from "./ui/button";
 import { navLinks, resume } from "@/lib/data";
 
 export function Nav() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 md:px-6 pt-4 md:pt-6">
       <nav
-        className={`mx-auto flex max-w-6xl items-center justify-between gap-6 rounded-full border px-5 py-3 backdrop-blur-md transition-all duration-300 md:px-6 ${
-          isScrolled
-            ? "border-border bg-bg/90 shadow-[0_1px_20px_-12px_rgba(0,0,0,0.35)]"
-            : "border-border/50 bg-bg/60"
-        }`}
+        className="mx-auto flex max-w-4xl items-center justify-between gap-6 rounded-full border border-border/60 bg-bg/60 px-5 py-3 backdrop-blur-md md:px-6"
       >
         <div className="flex items-center gap-4">
           <a
@@ -35,9 +21,6 @@ export function Nav() {
           >
             MELAKU
           </a>
-          <span className="hidden text-xs uppercase tracking-[0.22em] text-text-subtle md:inline">
-            AI / ML / data engineer
-          </span>
         </div>
 
         <div className="hidden items-center gap-8 md:flex">
@@ -61,9 +44,6 @@ export function Nav() {
             className="px-4 py-2 text-sm"
           >
             Resume
-          </Button>
-          <Button href="#contact" variant="primary" className="px-4 py-2 text-sm">
-            Get in touch
           </Button>
         </div>
 
@@ -104,11 +84,6 @@ export function Nav() {
                 {link.label}
               </a>
             ))}
-            <div className="mt-2 flex flex-col gap-2 border-t border-border pt-3">
-              <Button href="#contact" variant="primary" className="w-full" onClick={() => setIsMobileMenuOpen(false)}>
-                Get in touch
-              </Button>
-            </div>
           </div>
         </div>
       )}

@@ -24,6 +24,33 @@ function GithubIcon({ className }: { className?: string }) {
   );
 }
 
+function ProjectTags({ tags }: { tags: string[] }) {
+  const [expanded, setExpanded] = useState(false);
+  const LIMIT = 5;
+  const visible = expanded ? tags : tags.slice(0, LIMIT);
+  const hidden = tags.length - LIMIT;
+
+  return (
+    <div className="mt-4 flex flex-wrap gap-2">
+      {visible.map((tag) => (
+        <Pill key={tag} variant="muted">
+          {tag}
+        </Pill>
+      ))}
+      {hidden > 0 && (
+        <button
+          type="button"
+          onClick={() => setExpanded((v) => !v)}
+          aria-expanded={expanded}
+          className="inline-flex items-center rounded-full border border-border px-2.5 py-0.5 text-xs font-medium text-text-subtle transition-colors hover:border-border-strong hover:text-text"
+        >
+          {expanded ? "Show less" : `+${hidden} more`}
+        </button>
+      )}
+    </div>
+  );
+}
+
 export function Projects() {
   const [activeCategory, setActiveCategory] = useState("All");
 
@@ -102,16 +129,7 @@ export function Projects() {
                     {project.description}
                   </p>
 
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {project.tags.slice(0, 5).map((tag) => (
-                      <Pill key={tag} variant="muted">
-                        {tag}
-                      </Pill>
-                    ))}
-                    {project.tags.length > 5 && (
-                      <Pill variant="muted">+{project.tags.length - 5} more</Pill>
-                    )}
-                  </div>
+                  <ProjectTags tags={project.tags} />
                 </div>
 
                 <div className="md:justify-self-end">
