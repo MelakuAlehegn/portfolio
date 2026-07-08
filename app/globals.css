@@ -1,53 +1,85 @@
 @import "tailwindcss";
 
-/* Dark mode (default) */
 @theme {
-  --color-bg: #050507;
-  --color-surface: #0E0E14;
-  --color-surface-elevated: #16161E;
-  --color-border: #1F1F2A;
-  --color-border-strong: #2A2A38;
-  --color-text: #F5F5F7;
-  --color-text-muted: #A0A0AA;
-  --color-text-subtle: #6B6B76;
+  --color-bg: #f7f5f0;
+  --color-surface: #fbfaf7;
+  --color-surface-elevated: #ffffff;
+  --color-border: #ddd7cd;
+  --color-border-strong: #c9c2b7;
+  --color-text: #151515;
+  --color-text-muted: #5e5a52;
+  --color-text-subtle: #8a847a;
+  --color-accent: #405162;
+  --color-accent-hover: #26323d;
+  --color-accent-soft: rgba(64, 81, 98, 0.08);
 
-  /* Brand accent (violet) */
-  --color-accent: #8B5CF6;
-  --color-accent-hover: #7C3AED;
-  --color-accent-soft: rgba(139, 92, 246, 0.12);
-
-  /* Status colors -- used sparingly */
-  --color-success: #10B981;
-  --color-warning: #F59E0B;
-
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
 
-/* Light mode override */
 [data-theme="light"] {
-  --color-bg: #FAFAF7;
-  --color-surface: #FFFFFF;
-  --color-surface-elevated: #FFFFFF;
-  --color-border: #E8E6E1;
-  --color-border-strong: #D6D3CB;
-  --color-text: #0A0A0F;
-  --color-text-muted: #4B4B52;
-  --color-text-subtle: #8B8B92;
-  --color-accent: #6D28D9;
-  --color-accent-hover: #5B21B6;
-  --color-accent-soft: rgba(109, 40, 217, 0.08);
+  --color-bg: #f7f5f0;
+  --color-surface: #fbfaf7;
+  --color-surface-elevated: #ffffff;
+  --color-border: #ddd7cd;
+  --color-border-strong: #c9c2b7;
+  --color-text: #151515;
+  --color-text-muted: #5e5a52;
+  --color-text-subtle: #8a847a;
+  --color-accent: #405162;
+  --color-accent-hover: #26323d;
+  --color-accent-soft: rgba(64, 81, 98, 0.08);
 }
 
-/* Base styles */
+[data-theme="dark"] {
+  --color-bg: #101112;
+  --color-surface: #161718;
+  --color-surface-elevated: #1b1c1d;
+  --color-border: #2a2b2d;
+  --color-border-strong: #393b3e;
+  --color-text: #f3f1eb;
+  --color-text-muted: #b3ada4;
+  --color-text-subtle: #7f7a71;
+  --color-accent: #9fb0bf;
+  --color-accent-hover: #c7d1da;
+  --color-accent-soft: rgba(159, 176, 191, 0.08);
+}
+
 html {
   scroll-behavior: smooth;
+  background: var(--color-bg);
 }
 
 body {
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+.ambient-spotlight {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 1;
+  /* Subtle animated gradient - modern and minimalist */
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-soft) 0%,
+    transparent 50%,
+    var(--color-accent-soft) 100%
+  );
+  background-size: 400% 400%;
+  animation: gradient-shift 20s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 /* Reduced motion */
@@ -63,7 +95,6 @@ body {
   }
 }
 
-/* Skip link */
 .skip-link {
   position: absolute;
   top: -40px;
@@ -79,13 +110,11 @@ body {
   top: 0;
 }
 
-/* Focus styles */
 :focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -102,17 +131,4 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-text-subtle);
-}
-
-/* Dotted grid background */
-.bg-grid {
-  background-image: radial-gradient(circle, var(--color-border) 1px, transparent 1px);
-  background-size: 32px 32px;
-}
-
-/* Glow blob */
-.glow-blob {
-  background: radial-gradient(circle, var(--color-accent) 0%, transparent 70%);
-  filter: blur(100px);
-  opacity: 0.2;
 }

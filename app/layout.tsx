@@ -1,19 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+import { AmbientSpotlight } from "@/components/ambient-spotlight";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Melaku Alehegn — AI · ML · Data Engineer",
@@ -43,21 +31,22 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className="h-full antialiased"
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-bg text-text overflow-x-hidden">
+      <body className="relative min-h-full flex flex-col bg-bg text-text overflow-x-hidden">
         <ThemeProvider
           attribute="data-theme"
           defaultTheme="system"
           enableSystem
           storageKey="theme"
         >
+          <AmbientSpotlight />
           {/* Skip to content link */}
           <a href="#main" className="skip-link">
             Skip to content
           </a>
-          <main id="main" className="flex-1">
+          <main id="main" className="relative z-10 flex-1">
             {children}
           </main>
         </ThemeProvider>

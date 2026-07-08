@@ -22,12 +22,13 @@ export function Button({
   className = "",
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg";
+    "inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg";
 
   const variantStyles = {
-    primary: "bg-accent text-white hover:bg-accent-hover hover:-translate-y-0.5",
+    primary:
+      "border border-text bg-text text-bg hover:border-accent hover:bg-accent hover:text-bg",
     secondary:
-      "border border-border-strong bg-transparent text-text hover:border-border hover:bg-surface hover:-translate-y-0.5",
+      "border border-border bg-transparent text-text-muted hover:border-border-strong hover:bg-surface-elevated hover:text-text",
   };
 
   const combinedClassName = `${baseStyles} ${variantStyles[variant]} ${className}`;
